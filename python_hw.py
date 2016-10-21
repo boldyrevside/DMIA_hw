@@ -144,3 +144,50 @@ def chekEig(a,b,c):
     
 print "Are all eigenvalues and eigenvectors satisfy?"
 print chekEig(mat,k,i)
+
+"""
+NumPy(list vs array)
+"""
+
+a = range(0,11)
+from timeit import Timer
+t = Timer("a", setup ="from __main__ import a")
+print "list define:",t.timeit(number=1),"sec"
+
+from timeit import Timer
+t = Timer("a.append(10)", setup ="from __main__ import a")
+print "list append:",t.timeit(number=1),"sec"
+#print c
+t = Timer("a.pop()", setup = "from __main__ import a")
+print "list pop:",t.timeit(number=1),"sec"
+
+t = Timer("a.remove(2)", "from __main__ import a")
+print "list remov:",t.timeit(number=1),"sec"
+
+t = Timer("a.insert(2,3)", setup = "from __main__ import a")
+print "list insert:",t.timeit(number=1),"sec"
+
+t = Timer("a.count(7)", setup = "from __main__ import a")
+print "list count:",t.timeit(number=1),"sec"
+
+t = Timer("a.reverse()", setup = "from __main__ import a")
+print "list reverse:",t.timeit(number=1),"sec"
+
+t = Timer("a.sort()", setup = "from __main__ import a")
+print "list sort:",t.timeit(number=1),"sec"
+
+t = Timer("a.index(5)", setup = "from __main__ import a")
+print "list index:",t.timeit(number=1),"sec"
+
+t = Timer("a.extend('a')", setup = "from __main__ import a")
+print "list extend:",t.timeit(number=1),"sec"
+
+a=np.ndarray(shape=(1,10))
+a.sort()
+
+t = Timer("numpy.ndarray(shape=(1,10))", setup ="import numpy")
+print "array define:",t.timeit(number=1),"sec"
+
+t = Timer("numpy.ndarray(shape=(1,10)).sort()", setup ="import numpy")
+print "array sort:",t.timeit(number=1),"sec"
+
