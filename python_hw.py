@@ -76,3 +76,45 @@ def ListLinSpace(a,b,n):
 from timeit import Timer
 t = Timer("ListLinSpace(1,20,50)", "from __main__ import ListLinSpace")
 print "linspace by List Comprehension executes in",t.timeit(),"usec"
+
+"""
+Matplotlib
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import math
+import matplotlib
+x = np.arange(0, 4*np.pi+0.1, 0.1)
+y = np.sin(x)
+z = np.sin(2*x)
+
+x2 = np.linspace(0,5,300)
+y2 = x2**2
+z2 = 10*x2
+v2 = 1/x2 
+l2 = np.cos(x2)
+s2 = np.sin(x2)
+
+fig = plt.figure(num=None, figsize=(10, 8), dpi=100, facecolor='w', edgecolor='k')
+plt.subplot(2,2,1)
+plt.gca()
+plt.plot(x2, z2,color='red', linewidth=3.0, label = r'$10x$')
+
+plt.plot(x2, y2, color='g', linewidth=3.0, label = r'$x^2$')
+plt.plot(x2, v2, color='blue', linewidth=3.0,label = r'$\frac{1}{x}$')
+plt.xlabel('X axe')
+plt.ylabel('Y axe')
+plt.legend()
+plt.grid(True)
+
+plt.subplot(2,2,2)
+plt.plot(x2, l2, color='red', linewidth=3.0,label = r'$\sin(x)$')
+plt.plot(x2, s2, color='g', linewidth=3.0,label = r'$\cos(x)$')
+plt.xlabel('X axe')
+plt.grid(True)
+plt.legend()
+
+plt.show()
+fig.savefig('lol.pdf')
+
