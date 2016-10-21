@@ -118,3 +118,29 @@ plt.legend()
 plt.show()
 fig.savefig('lol.pdf')
 
+"""
+SciPy
+"""
+import numpy as np
+from numpy import linalg as LA
+
+
+mat = np.random.randn(5,5)
+print "matrix:"
+print mat
+i,k = LA.eig(mat)
+print "eigenvalues:"
+print i
+print "eigenvectors:"
+print k
+
+def chekEig(a,b,c):
+    i=0
+    while i<len(c):
+        if (c[i]*b[:,i]).all()!=(np.dot(a,b[:,i])).all():
+            return False
+        i=i+1
+    return True
+    
+print "Are all eigenvalues and eigenvectors satisfy?"
+print chekEig(mat,k,i)
