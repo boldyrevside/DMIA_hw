@@ -33,3 +33,46 @@ def fib(n):
     return a[n-1]
 
 fib(100)
+
+"""
+NumPy
+"""
+
+
+import numpy
+from time import time
+
+t0 = time()
+#print numpy.linspace(1,20)
+from timeit import Timer
+t = Timer("linspace(1,20)", "from numpy import linspace")
+print "linspace by Numpy executes in",t.timeit(),"usec"
+
+    
+def CycleLinSpace(a,b,n):
+    a = float(a)
+    b = float(b)
+    n = float(n)
+    otr=(b-a)/n
+    l = []
+    k=0
+    while k < n+1:
+        l.append(a+k*otr)
+        k=k+1
+    return l
+
+#print CycleLinSpace(1,20,50)
+from timeit import Timer
+t = Timer("CycleLinSpace(1,20,50)", "from __main__ import CycleLinSpace")
+print "linspace by Cycle executes in",t.timeit(),"usec"
+
+def ListLinSpace(a,b,n):
+    a = float(a)
+    b = float(b)
+    return [a + (b-a)/n*x for x in range(n+1)]
+
+#print ListLinSpace(1,20,50)
+
+from timeit import Timer
+t = Timer("ListLinSpace(1,20,50)", "from __main__ import ListLinSpace")
+print "linspace by List Comprehension executes in",t.timeit(),"usec"
