@@ -19,3 +19,17 @@ def FizzBuzz():
     print a                   
 
 FizzBuzz()                   
+
+def fib(n):
+    if n < 2:
+        return n
+    a=range(n)
+    a[0]=1
+    a[1]=1
+    i=2
+    while i<n:
+        a[i]=a[i-1]+a[i-2]
+        i=i+1
+    return a[n-1]
+
+fib(100)
